@@ -28,13 +28,13 @@ def xzfhhtml(fhcode,fhhtmlurl):#获取fh图片HTML,并保存,传入路径,保存
     except:
         pass
         
-def getfhhtml():#解析html源文件,解析出番号,番号地址,并把番号HTML下载
+def getfhhtml():#解析html源文件,解析出F号,F号地址,并把F号HTML下载
     for n in range(page):
         with open(f'{n+1}.{name}.html',encoding='utf-8') as f:#注意编码格式
             htmldata=f.read()   
             #redata=re.findall(r'<span>(.*?)<br><date>(.*?)</date> / <date>(.*?)</date></span>',htmldata)#(名称,车牌号,日期)
-            refhcode=re.findall(r'<span>.*?<br><date>(.*?)</date> / <date>.*?</date></span>',htmldata)#(番号)
-            refhallhtmlurl=re.findall(r'<a class="movie-box" href="(.*?)">',htmldata)#(番号HTML地址)
+            refhcode=re.findall(r'<span>.*?<br><date>(.*?)</date> / <date>.*?</date></span>',htmldata)#(F号)
+            refhallhtmlurl=re.findall(r'<a class="movie-box" href="(.*?)">',htmldata)#(F号HTML地址)
             list(map(xzfhhtml,refhcode,refhallhtmlurl))
                 
 def xzjpg(jpgname,jpgurl):
